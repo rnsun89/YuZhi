@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CommentScan</title>
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <header>
+        <h2>Comment Scan</h2>
+        <label>Type:</label>
+        <select id="Type">
+            <option value="Comment">All Article Comments</option>
+            <option value="Feedback">Contact Feedback</option>
+        </select>
+        <label>Scan Comment From Date:</label>
+        <input type="date" id="FromDate">
+        <button onclick="scanComment()">Scan Comment</button>
+    </header>
+
+    <main>
+        <div id="comment"></div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

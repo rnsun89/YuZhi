@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>首页</title>
+        <meta name="description" content="YuZhi">
+        <meta name="robots" content="noindex">
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <!--[if lt IE9]>
+            <script scr="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+			
+	<nav>	
+		<a href="index.html">首页</a>		
+		<a href="wanglian.html" value="wanglian" onclick="menuClick(event)">网恋</a>
+		<a href="daily.html" value="travel" onclick="menuClick(event)">厚君杂谈</a>
+		<a href="profile.html">联络我们</a>
+
+		<div id="timestamp" class="timestamp"></div>
+	</nav>
+
+	<header id ="titlebar">
+		<!--text-indent: 25px-->
+		
+		<div class="container">
+		<img class="titlePic" src=".\photo1\hzmeitu.jpg" height="148" alt="西湖风景" >	
+			<!--img class="titlePic" src=".\photo\hangz2.png" height="148" alt="西湖风景" >		
+			<div class="top-right">予<span id='zi'>之</span>網</div-->		
+		</div>
+	</header>
+
+
+	<aside class="aside-right">
+		<div id="lunbo">
+		<h1><center>旅美风光</h1>
+			<ul id="piclist"></ul>
+		</div>
+	</aside>
+	
+	<main>
+			<section class='index-section'>
+			
+			<h1 class = "center bold">勿忘初衷</h1>
+			<p class="bold">《予之网》是一个生活类平台，希望与同好网友在此探讨生活中的幸会或遭遇，
+			人生的喜怒哀乐的机缘，相互安慰和帮助，取长补短，与之为乐，予人为善。
+			</p>
+			<p class="bold">如果你的文章在本网发表，请注意，并不表示同意你的观点和立场，法律责任作者自负。</p>
+			<p class="bold">“初试啼声”，自不量力，抛砖引玉，命题一二，敬请点击阅读，参与讨论。</p>
+				
+	
+		<form class="center">
+		<img src=".\photo1\wanglian.jpg" height="32" width="200" alt="西湖风景" >	
+
+		<br>
+		
+			<a href='wanglian.html' value="wanglian" id='wanglianlink' onclick="menuClick(event);" class="bold">
+	
+			</a>
+		</form>
+	
+	
+	</main>
+	
+		<footer>
+			<div><p id='visitcnt'></p></div>
+			<div><p>予之網站 · 版權所有 <br>Copyright © 2017 yuzhi.com All rights reserved</p></div>
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="script.js"></script>
+
+	</body>
+
+</html>

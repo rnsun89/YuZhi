@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Article</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <h2 id="title" class="center" style="color: black"></h2>
+    </header>
+    <main>
+        <section>
+            <article>
+                <p id ="filetxt"></p>
+            </article>
+        </section>
+        <section><div id="pageno" class="center"></div></section>
+        <section id="page-bar"></section>
+
+        <section id="comment-section">
+            <form action="savecomment.php" method="post">
+                <h2>评论</h2>
+                <input type="hidden" id="commentfile" name="commentfile">
+                <div>
+                    <label for="name" class="comment-label">名字:</label>
+                    <input type="text" id="name" name="name" class="input-area"  required onchange="excludeWordFromName()" >
+                </div>
+                <div>
+                    <label for="comment" class="comment-label">评语：</label>
+                    <textarea class="comment-area"  id="comment" name="comment" maxlength="200" placeholder="评语不能超过200个字，如果要发私信，请到联系我们里发表。"  required></textarea>
+                </div>
+                    <input type="submit" value="提交" class="btn">
+				<hr>
+				<div id="comments"></div>                
+            </form>
+        </section>
+        <footer>
+            <p>予之網站 · 版權所有 <br>Copyright © 2017 yuzhi.com All rights reserved</p>
+        </footer>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
