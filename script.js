@@ -20,7 +20,7 @@ const   //lineLimit = 3,  //line based
 window.onload = function(){
     var pageName;
 										
-    if (document.title === '首页') {
+    if (document.title === '予之网') {
         getDate();
 
         if (!window.sessionStorage.getItem('Visited')) {
