@@ -37,6 +37,7 @@ window.onload = function(){
     }
 
     /*content page   */
+    $.ajaxSetup({cache:false});
     articleList = document.getElementById('article-list');
 
     if (articleList) {
@@ -72,7 +73,6 @@ window.onload = function(){
         comments = document.getElementById('comments'),
         title = document.getElementById('title');
 
-        $.ajaxSetup({cache:false});
         loadFile(fileName, fileTitle);
         loadComments(cmtFile);
         return;
