@@ -1,8 +1,8 @@
 {
   "scripts": {
     "compile": [
-      "chmod 775 photo/",
-      "chmod 777 contents/contact/feedback.txt"
+      "chmod 755 /photo/",
+      "chmod 766 /contents/contact/feedback.txt"
     ]
   }
 }
