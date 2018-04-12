@@ -180,32 +180,34 @@ function addArticleList(articleConfig){
 
     $.getJSON(articleConfig, function(articles){
         for (a in articles) {
-            list = document.createElement('li');
+            if (new Date(articles[a].pubdate) <= new Date()) {
+                list = document.createElement('li');
 
-            dateby = document.createElement('div');
-            dateby.innerHTML = '(' + articles[a].pubdate + ' 作者 ' + articles[a].pubby + ')';
-            dateby.setAttribute('class', 'small-date');
+                dateby = document.createElement('div');
+                dateby.innerHTML = '(' + articles[a].pubdate + ' 作者 ' + articles[a].pubby + ')';
+                dateby.setAttribute('class', 'small-date');
 
-            article = document.createElement('a');
-            article.setAttribute('class', 'article_title');
-            article.setAttribute('href', displayArticleHTML);
-            article.setAttribute('value', articles[a].source);
-            article.target = '_blank';
-            article.addEventListener('click',aClick);
-            article.innerHTML = articles[a].title;
-            article.setAttribute('title',articles[a].title);
-            article.setAttribute('cmtfile', articles[a].comment);
+                article = document.createElement('a');
+                article.setAttribute('class', 'article_title');
+                article.setAttribute('href', displayArticleHTML);
+                article.setAttribute('value', articles[a].source);
+                article.target = '_blank';
+                article.addEventListener('click', aClick);
+                article.innerHTML = articles[a].title;
+                article.setAttribute('title', articles[a].title);
+                article.setAttribute('cmtfile', articles[a].comment);
 
-            article.appendChild(dateby);
+                article.appendChild(dateby);
 
-            summary = document.createElement('p');
-            summary.setAttribute('class','article_summary');
-            summary.innerHTML = articles[a].summary;
+                summary = document.createElement('p');
+                summary.setAttribute('class', 'article_summary');
+                summary.innerHTML = articles[a].summary;
 
-            //article.appendChild(cmt);
-            list.appendChild(article);
-            list.appendChild(summary);
-            articleList.appendChild(list);
+                //article.appendChild(cmt);
+                list.appendChild(article);
+                list.appendChild(summary);
+                articleList.appendChild(list);
+            }
         }
     })
 }

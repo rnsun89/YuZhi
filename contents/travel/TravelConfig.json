@@ -2,32 +2,23 @@
  "article6": {
         "title": "我的生日",
         "source": ".\\contents\\travel\\travel6\\article6.txt",
-        "pubdate": "2018年1月21日",
+        "pubdate": "2018/1/30",
         "pubby": "厚君",
         "comment": ".\\contents\\travel\\travel6\\comment6.txt",
         "summary": ""
-    },   
-
-   "article1": {
-        "title": "魔鬼坡",
-        "source": ".\\contents\\travel\\travel1\\article1.txt",
-        "pubdate": "2018年1月21日",
-        "pubby": "厚君",
-        "comment": ".\\contents\\travel\\travel1\\comment1.txt",
-        "summary": ""
-    },
+    },      
     "article2": {
         "title": "太浩湖",
         "source": ".\\contents\\travel\\travel2\\article2.txt",
-        "pubdate": "2018年1月21日",
+        "pubdate": "2018/4/11",
         "pubby": "厚君",
         "comment": ".\\contents\\travel\\travel2\\comment2.txt",
         "summary": ""
-    },
+    },	
     "article3": {
         "title": "一号公路",
         "source": ".\\contents\\travel\\travel3\\article3.txt",
-        "pubdate": "2018年1月21日",
+        "pubdate": "2018/4/12",
         "pubby": "厚君",
         "comment": ".\\contents\\travel\\travel3\\comment3.txt",
         "summary": ""
@@ -35,7 +26,7 @@
     "article4": {
         "title": "太马山",
         "source": ".\\contents\\travel\\travel4\\article4.txt",
-        "pubdate": "2018年1月21日",
+        "pubdate": "2018/4/18",
         "pubby": "厚君",
         "comment": ".\\contents\\travel\\travel4\\comment4.txt",
         "summary": ""
@@ -43,9 +34,17 @@
 	 "article5": {
         "title": "共享单车",
         "source": ".\\contents\\travel\\travel5\\article5.txt",
-        "pubdate": "2018年1月21日",
+        "pubdate": "2018/4/25",
         "pubby": "厚君",
         "comment": ".\\contents\\travel\\travel5\\comment5.txt",
+        "summary": ""
+    },
+	"article1": {
+        "title": "魔鬼坡",
+        "source": ".\\contents\\travel\\travel1\\article1.txt",
+        "pubdate": "2018/5/1",
+        "pubby": "厚君",
+        "comment": ".\\contents\\travel\\travel1\\comment1.txt",
         "summary": ""
     }
 }
