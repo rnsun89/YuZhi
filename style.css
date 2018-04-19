@@ -153,19 +153,9 @@ p {
 	
 }
 
-/*.footer_bottom{	
-	width:100%;
-	height:60px;   
-	background:#6cf;
-	position: bottom
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: red;
-   color: white;
-   text-align: center;
-   clear: both;
-	
-	
-}*/
+@media screen and (max-width: 480px) {    
+	.index-section {
+		font-size: larger;  
+	}	
+}
 				
