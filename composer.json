@@ -1,8 +1,7 @@
 {
   "scripts":{
     "compile":[
-      "chmod go+rx photo",
-      "chmod go+r photo/"
+      "chmod go+rx photo"
     ]
   }
 }
