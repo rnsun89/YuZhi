@@ -421,6 +421,7 @@ function createPicList(folder){
         return;
     }
 
+    /*rs: 20180420 forbidden error 403 in heroku
     $.ajax({
         url:folder,
         success: function(data){            
@@ -454,7 +455,30 @@ function createPicList(folder){
                 },3000);//切换时间
             }
         }
+    })*/
+
+    var files = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg'];
+
+    files.forEach(function(file){
+        li = document.createElement('li');
+        li.style.listStyle = 'none';
+        li.style.display = 'none';
+        image = document.createElement('img');
+        image.src = folder + "\\" + file;
+        image.width = 270;
+        image.height = 200;
+        li.appendChild(image);
+        picList.appendChild(li);
     })
+
+    lis = picList.getElementsByTagName('li');
+    len = lis.length;
+    num = 0;
+    setInterval(function(){
+        lis[num].style.display="none";
+        num=++num >= len?0:num;
+        lis[num].style.display="inline-block";
+    },3000);//切换时间
 }
 
 function scanComment(){
