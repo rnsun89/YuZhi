@@ -8,7 +8,7 @@ nav {
 	position: Fixed;
 	top: 0;
 	background-color: yellow;
-	font-size: 30px;
+	font-size: 1.7em;
 	z-index: 100;
 
 }
@@ -71,7 +71,7 @@ footer {
 }
 .aside-right {
 	float: right;
-	width: 30%;
+	width: 35%;
     padding-right: 10px;
     color: chocolate ;
 	max-height:1000px;
@@ -111,7 +111,7 @@ footer {
 
 pre {
 	font-family: kaiti;
-	font-size:20;
+	font-size:20px;
 }	
 	
 p {
@@ -155,7 +155,19 @@ p {
 
 @media screen and (max-width: 480px) {    
 	.index-section {
-		font-size: larger;  
-	}	
+		font-size: 1.4em;
+	}
+	.aside-right {
+		width: 50%;
+	}
+
+	.section {
+		font-size: 1.4em;
+	}
+
+	.aside-left {
+		width: 50%;
+		font-size:1.4em;
+	}
 }
 				
