@@ -46,6 +46,7 @@ header {
 
 footer {
     padding: 0em;
+    margin-top: 60px;
     color: white;
     background-color: green;
     clear: left;
@@ -75,7 +76,7 @@ footer {
     padding-right: 10px;
     color: chocolate ;
 	max-height:1000px;
-	min-height: 1000px;
+	min-height: 500px;
 	overflow: auto
 }
 
@@ -85,13 +86,18 @@ footer {
     padding-right: 10px;
     color: chocolate ;
 	max-height:1000px;
-	min-height: 1000px;
+	min-height: 500px;
 	overflow: auto
 }
 
 
 .index-section {
 	padding-right: 100px;
+}
+
+#article-list {
+    width: 90%;
+    list-style-type: none;
 }
 
 #wanglianlink:link {
@@ -162,12 +168,20 @@ p {
 	}
 
 	.section {
-		font-size: 1.4em;
+		font-size: 1.2em;
 	}
 
 	.aside-left {
 		width: 50%;
-		font-size:1.4em;
+		font-size:1.2em;
 	}
+
+    #filetxt {
+        font-size: 1.2em;
+    }
+
+    #pagno  {
+        font-size: 1.2em;
+    }
 }
 				

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Display Article</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -10,15 +11,15 @@
         <h2 id="title" class="center" style="color: black"></h2>
     </header>
     <main>
-        <section>
+        <section class="section">
             <article>
                 <p id ="filetxt"></p>
             </article>
         </section>
-        <section><div id="pageno" class="center"></div></section>
+        <section class="section"><div id="pageno" class="center"></div></section>
         <section id="page-bar"></section>
 
-        <section id="comment-section">
+        <section class="section" id="comment-section">
             <form action="savecomment.php" method="post">
                 <h2>评论</h2>
                 <input type="hidden" id="commentfile" name="commentfile">

@@ -457,17 +457,31 @@ function createPicList(folder){
         }
     })*/
 
-    var files = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg'];
+    var files = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg'],
+        a, di;
 
     files.forEach(function(file){
         li = document.createElement('li');
         li.style.listStyle = 'none';
         li.style.display = 'none';
+
+        di= document.createElement('div');
+        di.setAttribute('class', 'center');
+
         image = document.createElement('img');
         image.src = folder + "\\" + file;
         image.width = 270;
         image.height = 200;
-        li.appendChild(image);
+        image.style.width = '100%';
+
+        a = document.createElement('a');
+        a.href = folder + "\\" + file;
+        a.target = '_blank';
+        a.innerHTML = '放大';
+
+        di.appendChild(image);
+        di.appendChild(a);
+        li.appendChild(di);
         picList.appendChild(li);
     })
 
@@ -478,7 +492,7 @@ function createPicList(folder){
         lis[num].style.display="none";
         num=++num >= len?0:num;
         lis[num].style.display="inline-block";
-    },3000);//切换时间
+    },3000); //切换时间
 }
 
 function scanComment(){
