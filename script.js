@@ -41,7 +41,7 @@ window.onload = function(){
     articleList = document.getElementById('article-list');
 
     if (articleList) {
-        pageName = window.sessionStorage.getItem('PageName');
+        /*pageName = window.sessionStorage.getItem('PageName');  back button will not work
 
         switch (pageName) {
             case 'travel':
@@ -53,6 +53,14 @@ window.onload = function(){
             default:
                 articles = '';
 
+        }*/
+
+        if (document.title === '予之网厚君杂谈') {
+            articles = configFiles[0];
+        } else if (document.title === '网恋') {
+            articles = configFiles[1];
+        } else {
+            articles = '';
         }
 
         addArticleList(articles);
