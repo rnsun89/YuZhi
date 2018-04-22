@@ -130,6 +130,7 @@ function aClick(evt){
 }
 
 function addWanglianLink(){
+    //add first wanglian article in index.html
     var wanglianConfig = configFiles[1],
         wanglianlink = document.getElementById('wanglianlink'),
         article;
@@ -142,10 +143,10 @@ function addWanglianLink(){
                 article.setAttribute('href', displayArticleHTML);
                 article.setAttribute('value', articles[a].source);
                 article.target = '_blank';
-                article.addEventListener('click',aClick);
                 article.innerHTML = articles[a].title;
                 article.setAttribute('title',articles[a].title);
                 article.setAttribute('cmtfile', articles[a].comment);
+                article.addEventListener('click',aClick);
                 wanglianlink.appendChild(article);
             }
             break;
@@ -217,11 +218,15 @@ function addArticleList(articleConfig){
                     article.setAttribute('href', displayArticleHTML);
                     article.setAttribute('value', articles[a].source);
                     article.target = '_blank';
-                    article.addEventListener('click', aClick);
                     article.innerHTML = articles[a].title;
                     article.setAttribute('title', articles[a].title);
                     article.setAttribute('cmtfile', articles[a].comment);
-
+                    article.addEventListener('click', function(){
+                        //aClick  using aClick will bring empty article sometimes.
+                        window.sessionStorage.setItem('FileName',this.getAttribute('value'));
+                        window.sessionStorage.setItem('CommentFile',this.getAttribute('cmtfile'));
+                        window.sessionStorage.setItem('Title', this.getAttribute('title'));
+                    });
                     article.appendChild(dateby);
 
                     summary = document.createElement('p');
