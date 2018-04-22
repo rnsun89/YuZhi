@@ -190,77 +190,46 @@ function getList(config, callback){
 function addArticleList(articleConfig){
     var list,
         article,
-        articles = [],
         dateby,
         summary,
         i = 0;
 
-    articles = getList(articleConfig);
+    var callback = function(err, articles) {
+        if (articles.length > 0) {
+            for (a in articles) {
+                if (new Date(articles[a].pubdate) <= new Date()) {
+                    list = document.createElement('li');
 
-    if (articles.length > 0) {
-        for (a in articles) {
-            if (new Date(articles[a].pubdate) <= new Date()) {
-                list = document.createElement('li');
+                    dateby = document.createElement('div');
+                    dateby.innerHTML = '(' + articles[a].pubdate + ' 作者 ' + articles[a].pubby + ')';
+                    dateby.setAttribute('class', 'small-date');
 
-                dateby = document.createElement('div');
-                dateby.innerHTML = '(' + articles[a].pubdate + ' 作者 ' + articles[a].pubby + ')';
-                dateby.setAttribute('class', 'small-date');
+                    article = document.createElement('a');
+                    article.setAttribute('class', 'article_title');
+                    article.setAttribute('href', displayArticleHTML);
+                    article.setAttribute('value', articles[a].source);
+                    article.target = '_blank';
+                    article.addEventListener('click', aClick);
+                    article.innerHTML = articles[a].title;
+                    article.setAttribute('title', articles[a].title);
+                    article.setAttribute('cmtfile', articles[a].comment);
 
-                article = document.createElement('a');
-                article.setAttribute('class', 'article_title');
-                article.setAttribute('href', displayArticleHTML);
-                article.setAttribute('value', articles[a].source);
-                article.target = '_blank';
-                article.addEventListener('click', aClick);
-                article.innerHTML = articles[a].title;
-                article.setAttribute('title', articles[a].title);
-                article.setAttribute('cmtfile', articles[a].comment);
+                    article.appendChild(dateby);
 
-                article.appendChild(dateby);
+                    summary = document.createElement('p');
+                    summary.setAttribute('class', 'article_summary');
+                    summary.innerHTML = articles[a].summary;
 
-                summary = document.createElement('p');
-                summary.setAttribute('class', 'article_summary');
-                summary.innerHTML = articles[a].summary;
-
-                //article.appendChild(cmt);
-                list.appendChild(article);
-                list.appendChild(summary);
-                articleList.appendChild(list);
+                    //article.appendChild(cmt);
+                    list.appendChild(article);
+                    list.appendChild(summary);
+                    articleList.appendChild(list);
+                }
             }
         }
     }
-    /*$.getJSON(articleConfig, function(articles){
-        for (a in articles) {
-            if (new Date(articles[a].pubdate) <= new Date()) {
-                list = document.createElement('li');
 
-                dateby = document.createElement('div');
-                dateby.innerHTML = '(' + articles[a].pubdate + ' 作者 ' + articles[a].pubby + ')';
-                dateby.setAttribute('class', 'small-date');
-
-                article = document.createElement('a');
-                article.setAttribute('class', 'article_title');
-                article.setAttribute('href', displayArticleHTML);
-                article.setAttribute('value', articles[a].source);
-                article.target = '_blank';
-                article.addEventListener('click', aClick);
-                article.innerHTML = articles[a].title;
-                article.setAttribute('title', articles[a].title);
-                article.setAttribute('cmtfile', articles[a].comment);
-
-                article.appendChild(dateby);
-
-                summary = document.createElement('p');
-                summary.setAttribute('class', 'article_summary');
-                summary.innerHTML = articles[a].summary;
-
-                //article.appendChild(cmt);
-                list.appendChild(article);
-                list.appendChild(summary);
-                articleList.appendChild(list);
-            }
-        }
-    })*/
+    getList(articleConfig,  callback);
 }
 
 function splitText (txt, fileTitle) {
@@ -472,46 +441,7 @@ function createPicList(config){
         return;
     }
 
-    /*rs: 20180420 forbidden error 403 in heroku
-    $.ajax({
-        url:folder,
-        success: function(data){            
-            var hrefs = $(data).find('[HREF]'),
-                len = hrefs.length;
-
-            for (href in hrefs){
-                pathname = hrefs[href].pathname;
-                if (pathname && /\.jpg|\.png/i.test(pathname)) {
-                    li = document.createElement('li');
-                    li.style.listStyle = 'none';
-                    li.style.display = 'none';
-                    image = document.createElement('img');
-                    image.src = '.' + pathname;
-                    image.width = 270;
-                    image.height = 200;
-                    li.appendChild(image);
-                    picList.appendChild(li);
-                    num++;
-                }
-            }
-
-            if (num) {
-                lis = picList.getElementsByTagName('li');
-				len = lis.length;
-                num = 0;
-                setInterval(function(){
-                    lis[num].style.display="none";
-                    num=++num >= len?0:num;
-                    lis[num].style.display="inline-block";
-                },3000);//切换时间
-            }
-        }
-    })*/
-
-    //var files, //= ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg'],
-    //    a, di;
-
-    var callback = function(err, files) {
+     var callback = function(err, files) {
 
         if (err) {
             alert(err.message);
