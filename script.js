@@ -14,6 +14,7 @@ const   //lineLimit = 3,  //line based
         updateVisitCntFile = 'updatevisitcnt.php',
         activePages = 10,
         configFiles = ['.\\contents\\travel\\TravelConfig.json', '.\\contents\\wanglian\\WangLianConfig.json'],
+        photoConfig = '.\\photo\\PhotoConfig.json',
         feedback = '.\\contents\\contact\\feedback.txt';
 
 
@@ -31,7 +32,7 @@ window.onload = function(){
         }
 
         addWanglianLink();
-		createPicList('.\\photo');
+		createPicList(photoConfig);
         
         return;
     }
@@ -171,14 +172,32 @@ function addComment(txt){
     }
 }
 
+function getList(config, callback){
+    var listItem = [];
+
+    $.getJSON(config, function(list){
+        for (l in list) {
+            if (new Date(list[l].pubdate) <= new Date()){
+                listItem.push(list[l]);
+            }
+        }
+
+        return callback(null, listItem);
+    })
+}
+
+
 function addArticleList(articleConfig){
     var list,
         article,
+        articles = [],
         dateby,
         summary,
         i = 0;
 
-    $.getJSON(articleConfig, function(articles){
+    articles = getList(articleConfig);
+
+    if (articles.length > 0) {
         for (a in articles) {
             if (new Date(articles[a].pubdate) <= new Date()) {
                 list = document.createElement('li');
@@ -209,7 +228,39 @@ function addArticleList(articleConfig){
                 articleList.appendChild(list);
             }
         }
-    })
+    }
+    /*$.getJSON(articleConfig, function(articles){
+        for (a in articles) {
+            if (new Date(articles[a].pubdate) <= new Date()) {
+                list = document.createElement('li');
+
+                dateby = document.createElement('div');
+                dateby.innerHTML = '(' + articles[a].pubdate + ' 作者 ' + articles[a].pubby + ')';
+                dateby.setAttribute('class', 'small-date');
+
+                article = document.createElement('a');
+                article.setAttribute('class', 'article_title');
+                article.setAttribute('href', displayArticleHTML);
+                article.setAttribute('value', articles[a].source);
+                article.target = '_blank';
+                article.addEventListener('click', aClick);
+                article.innerHTML = articles[a].title;
+                article.setAttribute('title', articles[a].title);
+                article.setAttribute('cmtfile', articles[a].comment);
+
+                article.appendChild(dateby);
+
+                summary = document.createElement('p');
+                summary.setAttribute('class', 'article_summary');
+                summary.innerHTML = articles[a].summary;
+
+                //article.appendChild(cmt);
+                list.appendChild(article);
+                list.appendChild(summary);
+                articleList.appendChild(list);
+            }
+        }
+    })*/
 }
 
 function splitText (txt, fileTitle) {
@@ -412,10 +463,10 @@ function getNextNoPages(pageBtns, activePos){
     }
 }
 
-function createPicList(folder){
+function createPicList(config){
     var picList = document.getElementById('piclist'),
         num = 0,
-        pathname, li, image, lis, len;
+        pathname, li, image, lis, len, a, di;
 
     if (!picList) {
         return;
@@ -457,42 +508,57 @@ function createPicList(folder){
         }
     })*/
 
-    var files = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg'],
-        a, di;
+    //var files, //= ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg'],
+    //    a, di;
 
-    files.forEach(function(file){
-        li = document.createElement('li');
-        li.style.listStyle = 'none';
-        li.style.display = 'none';
+    var callback = function(err, files) {
 
-        di= document.createElement('div');
-        di.setAttribute('class', 'center');
+        if (err) {
+            alert(err.message);
+            return;
+        }
 
-        image = document.createElement('img');
-        image.src = folder + "\\" + file;
-        image.width = 270;
-        image.height = 200;
-        image.style.width = '100%';
+        files.forEach(function (file) {
+            li = document.createElement('li');
+            li.style.listStyle = 'none';
+            li.style.display = 'none';
 
-        a = document.createElement('a');
-        a.href = folder + "\\" + file;
-        a.target = '_blank';
-        a.innerHTML = '放大';
+            di = document.createElement('div');
+            di.setAttribute('class', 'center');
 
-        di.appendChild(image);
-        di.appendChild(a);
-        li.appendChild(di);
-        picList.appendChild(li);
-    })
+            image = document.createElement('img');
+            image.src = file.source; //folder + "\\" + file;
+            image.width = 270;
+            image.height = 200;
+            image.style.width = '100%';
 
-    lis = picList.getElementsByTagName('li');
-    len = lis.length;
-    num = 0;
-    setInterval(function(){
-        lis[num].style.display="none";
-        num=++num >= len?0:num;
-        lis[num].style.display="inline-block";
-    },3000); //切换时间
+            a = document.createElement('a');
+            a.href = file.source;  //folder + "\\" + file;
+            a.target = '_blank';
+            a.innerHTML = '放大:' + file.title;
+
+            di.appendChild(image);
+            di.appendChild(a);
+            li.appendChild(di);
+            picList.appendChild(li);
+        })
+
+        lis = picList.getElementsByTagName('li');
+        len = lis.length;
+        num = 0;
+
+        if (lis.length == 0) {
+            return;
+        }
+
+        setInterval(function () {
+            lis[num].style.display = "none";
+            num = ++num >= len ? 0 : num;
+            lis[num].style.display = "inline-block";
+        }, 3000); //切换时间
+    }
+
+    getList(config, callback);
 }
 
 function scanComment(){

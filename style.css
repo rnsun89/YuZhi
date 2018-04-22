@@ -46,7 +46,7 @@ header {
 
 footer {
     padding: 0em;
-    margin-top: 60px;
+    margin-top: 100px;
     color: white;
     background-color: green;
     clear: left;
@@ -54,10 +54,7 @@ footer {
 	z-index: 100;
 }
 
-
-
 	/* Top right text */
-
 
 .titlePic {
 	width: 100%;	
