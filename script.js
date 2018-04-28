@@ -20,7 +20,9 @@ const   //lineLimit = 3,  //line based
 
 window.onload = function(){
     var pageName;
-										
+
+    $.ajaxSetup({cache:false});
+
     if (document.title === '《予之网》是一个生活类平台，希望与同好网友在此探讨生活中的幸会或遭遇， 人生的喜怒哀乐的机缘，相互安慰和帮助，取长补短，与之为乐，予人为善。') {
         getDate();
 
@@ -81,7 +83,7 @@ window.onload = function(){
         comments = document.getElementById('comments'),
         title = document.getElementById('title');
 
-        $.ajaxSetup({cache:false});
+        //$.ajaxSetup({cache:false});
         loadFile(fileName, fileTitle);
         loadComments(cmtFile);
         return;
@@ -105,7 +107,6 @@ function getDate(){
 function updateVisitorCnt(visited){
     var visitCnt = document.getElementById('visitcnt');
 
-    $.ajaxSetup({cache:false});
     if (visited) {
         $.get('visitcnt.txt', function(txt){
             visitCnt.innerHTML = '访问人数:' + txt;
