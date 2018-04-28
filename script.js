@@ -105,6 +105,7 @@ function getDate(){
 function updateVisitorCnt(visited){
     var visitCnt = document.getElementById('visitcnt');
 
+    $.ajaxSetup({cache:false});
     if (visited) {
         $.get('visitcnt.txt', function(txt){
             visitCnt.innerHTML = '访问人数:' + txt;
