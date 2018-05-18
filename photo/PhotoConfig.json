@@ -48,7 +48,7 @@
         "pubby": "厚君",
         "summary": "This is Photo7."
     },
-	  "photo8": {
+    "photo8": {
         "title": "海湾大桥",
         "source": ".\\photo\\8.jpg",
         "pubdate": "2018/1/30",
@@ -83,15 +83,14 @@
         "pubby": "厚君",
         "summary": "This is Photo5."
     },
-   
-   "photo13": {
+    "photo13": {
         "title": "太浩湖",
         "source": ".\\photo\\13.jpg",
         "pubdate": "2018/1/30",
         "pubby": "厚君",
         "summary": "This is Photo6."
     },
-	   "photo14": {
+	"photo14": {
         "title": "金门休闲区",
         "source": ".\\photo\\14.jpg",
         "pubdate": "2018/1/30",
@@ -133,7 +132,6 @@
         "pubby": "厚君",
         "summary": "This is Photo6."
     },
-	
 	"photo21": {
         "title": "圣拉斐尔",
         "source": ".\\photo\\21.jpg",
@@ -204,7 +202,7 @@
         "pubby": "厚君",
         "summary": "This is Photo7."
     },
-	  "photo32": {
+	"photo32": {
         "title": "旧金山",
         "source": ".\\photo\\32.jpg",
         "pubdate": "2018/1/30",
@@ -239,15 +237,14 @@
         "pubby": "厚君",
         "summary": "This is Photo5."
     },
-   
-   "photo37": {
+    "photo37": {
         "title": "中国营",
         "source": ".\\photo\\37.jpg",
         "pubdate": "2018/1/30",
         "pubby": "厚君",
         "summary": "This is Photo6."
     },
-	   "photo38": {
+	"photo38": {
         "title": "湾区",
         "source": ".\\photo\\38.jpg",
         "pubdate": "2018/1/30",
@@ -289,5 +286,4 @@
         "pubby": "厚君",
         "summary": "This is Photo6."
     }
-	
-	}
+}
