@@ -1,5 +1,21 @@
 {
-    "article6": {
+ "article8": {
+        "title": "共享文化实在好",
+        "source": ".\\contents\\travel\\travel8\\article8.txt",
+        "pubdate": "2018/8/28",
+        "pubby": "厚君",
+        "comment": ".\\contents\\travel\\travel8\\comment8.txt",
+        "summary": ""
+    },      
+  "article7": {
+        "title": "老人与海",
+        "source": ".\\contents\\travel\\travel7\\article7.txt",
+        "pubdate": "2018/8/28",
+        "pubby": "厚君",
+        "comment": ".\\contents\\travel\\travel7\\article7\\comment7.txt",
+        "summary": ""
+    },	
+ "article6": {
         "title": "我的生日",
         "source": ".\\contents\\travel\\travel6\\article6.txt",
         "pubdate": "2018/1/30",
